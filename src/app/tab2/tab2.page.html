@@ -1,0 +1,62 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title> Mi Curriculum Vitae </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <div class="profile-container">
+    <img src="assets/perfil.jpg" alt="Foto de perfil" class="profile-img">
+    <h2 class="profile-name">{{ datosPersonales.nombre }}</h2>
+    <p class="profile-subtitle">{{ datosPersonales.profesion || 'Desarrollador de Software' }}</p>
+  </div>
+  <ion-card>
+    <ion-card-header >
+      <ion-card-title>Datos Personales</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <p><strong>Telefono:</strong> {{datosPersonales.telefono}}</p>
+      <p><strong>Correo:</strong> {{datosPersonales.correo}}</p>
+      <p><strong>Ciudad:</strong> {{ datosPersonales.direccion}}</p>
+    </ion-card-content>
+  </ion-card>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Perfil Profesional</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <p>{{ perfil }}</p>
+    </ion-card-content>
+  </ion-card>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Formación Académica</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-list>
+        <ion-item *ngFor="let formacion of formacion">
+          <ion-label>
+            <h2>{{ formacion.titulo }}</h2>
+            <p>{{ formacion.institucion }} — {{ formacion.fechas }}</p>
+          </ion-label>
+        </ion-item>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Habilidades</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <p><strong>Técnicas:</strong></p>
+      <ion-chip *ngFor="let skill of habilidadesTecnicas">{{ skill }}</ion-chip>
+
+      <p class="mt"><strong>Blandas:</strong></p>
+      <ion-chip color="tertiary" *ngFor="let soft of habilidadesBlandas">{{ soft }}</ion-chip>
+
+      <p class="mt"><strong>Idiomas:</strong></p>
+      <ion-chip color="success" *ngFor="let idioma of idiomas">{{ idioma }}</ion-chip>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
